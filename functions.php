@@ -11,8 +11,8 @@
 // Asset Enqueues
 function kpc_enqueue_assets() {
     // Main CSS Styles
-    wp_enqueue_style('ns-theme-toggle', get_template_directory_uri() . '/assets/css/theme-toggle.css', [], '1.1');
-    wp_enqueue_style('ns-carousel-style', get_template_directory_uri() . '/assets/css/carousel.css', [], '1.0');
+    wp_enqueue_style('kpc-theme-toggle', get_template_directory_uri() . '/assets/css/theme-toggle.css', [], '1.1');
+    wp_enqueue_style('kpc-carousel-style', get_template_directory_uri() . '/assets/css/carousel.css', [], '1.0');
 
     // Scripts
     wp_enqueue_script('heroCarouselJs', get_template_directory_uri() . '/assets/js/carousel/carousel.js', [], null, true);
