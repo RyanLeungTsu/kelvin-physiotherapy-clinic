@@ -15,7 +15,7 @@ function kpc_enqueue_assets() {
     wp_enqueue_style('kpc-carousel-style', get_template_directory_uri() . '/assets/css/carousel.css', [], '1.0');
 
     // Scripts
-    wp_enqueue_script('heroCarouselJs', get_template_directory_uri() . '/assets/js/carousel/carousel.js', [], null, true);
+    wp_enqueue_script('heroCarouselJs', get_template_directory_uri() . '/assets/js/carousel.js', [], null, true);
     wp_enqueue_script('theme-toggle-script', get_template_directory_uri() . '/assets/js/theme-toggle/theme-toggle.js', [], '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'kpc_enqueue_assets');
@@ -29,12 +29,12 @@ add_action('wp_enqueue_scripts', 'kpc_enqueue_override', 999);
 function kpc_register_cpts() {
     // Staff
     register_post_type('staff', [
-        'labels' => 'Staff',
+        'labels' => ['name' => 'Staff',],
         'public' => true,
         'has_archive' => true,
         'rewrite' => ['slug' => 'staff-archive'],
         'supports' => ['title','editor','thumbnail'],
-        // 'menu_position' => 4,
+        'menu_position' => 4,
         'menu_icon' => 'dashicons-groups',
         'show_in_rest' => true,
     ]);
@@ -46,7 +46,7 @@ function kpc_register_cpts() {
         'has_archive' => true,
         'rewrite' => ['slug' => 'services-archive'],
         'supports' => ['title','editor','thumbnail'],
-        // 'menu_position' => 5,
+        'menu_position' => 5,
         'menu_icon' => 'dashicons-businessman',
         'show_in_rest' => true,
     ]);
@@ -112,3 +112,43 @@ function kpc_register_taxonomies() {
 ]);
 }
 add_action('init', 'kpc_register_taxonomies');
+
+// Shortcode carousel
+function heroCarouselShortcode() {
+    $images = get_field('carousel_images', get_the_ID());
+    if (!$images) return '<p>No images found.</p>';
+
+    ob_start(); ?>
+    <div class="hero-carousel">
+        <?php foreach ($images as $img): ?>
+            <div class="carousel-slide">
+                <img src="<?php echo esc_url(wp_get_attachment_image_url($img['ID'],'bg')); ?>"
+                     alt="<?php echo esc_attr($img['alt']); ?>" />
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('hero_carousel','heroCarouselShortcode');
+
+// Custom Image Sizes
+add_theme_support('post-thumbnails');
+function kpc_custom_image_sizes() {
+    add_image_size('small',150,150,true);
+    add_image_size('medium',300,300,true);
+    add_image_size('large',600,600,true);
+    add_image_size('bg',1920,1080,true);
+    add_image_size('gallery',960,960,true);
+
+    add_filter('image_size_names_choose', function($sizes){
+        return array_merge($sizes,[
+            'small'=>'kpc Small',
+            'medium'=>'kpc Medium',
+            'large'=>'kpc Large',
+            'bg'=>'kpc Background',
+            'gallery'=>'kpc Gallery Photo',
+        ]);
+    });
+}
+add_action('after_setup_theme','kpc_custom_image_sizes');
