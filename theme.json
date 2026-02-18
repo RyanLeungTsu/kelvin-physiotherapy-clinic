@@ -4,8 +4,8 @@
 	"settings": {
 		"appearanceTools": true,
 		"layout": {
-			"contentSize": "620px",
-			"wideSize": "1000px"
+			"contentSize": "100vh",
+			"wideSize": "100vw"
 		},
 		"spacing": {
 			"units": [
@@ -27,6 +27,16 @@
 			]
 		},
 		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"spacing": {
+			"padding": {
+				"bottom": "0px",
+				"left": "0rem",
+				"right": "0rem",
+				"top": "0px"
+			}
+		}
 	},
 	"templateParts": [
 		{

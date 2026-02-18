@@ -1,0 +1,136 @@
+/* hides the defauly desktop nav bar on tablet and mobile */
+@media (max-width: 968px) {
+    .site-header,
+    .kadence-column[class*="header"],
+    header {
+        display: none !important;
+    }
+}
+
+/* Mobile Header */
+.mobile-header {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--primary);
+    z-index: 9999;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 968px) {
+    .mobile-header {
+        display: flex;
+    }
+    
+    body {
+        padding-top: 5rem;
+    }
+}
+
+.mobile-header-logo {
+    width: 3.5rem;
+    height: auto;
+}
+
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--logo);
+}
+
+.mobile-menu-toggle svg {
+    color: var(--logo);
+}
+
+.mobile-menu-toggle svg {
+    width: 3rem;
+    height: 3rem;
+    transition: transform 0.3s;
+}
+
+.mobile-menu-toggle.active svg {
+    transform: rotate(180deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100vh - 5rem);
+    background: var(--background);
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-logo {
+    width: 8rem;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.mobile-menu-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.mobile-menu-nav li a {
+    font-size: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/* Bottom arrow */
+.mobile-menu-bottom-arrow {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.mobile-menu-bottom-arrow svg {
+    color: var(--logo);
+}
+
+/* Hides the mobile nav on desktop */
+@media (min-width: 968px) {
+    .mobile-header,
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+}

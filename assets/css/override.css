@@ -1,0 +1,184 @@
+
+/* Font */
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/kelvin-physio/wp-content/uploads/2026/02/PlusJakartaSans-Italic.woff2') format('woff2'),
+        url('/kelvin-physio/wp-content/uploads/2026/02/PlusJakartaSans-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/kelvin-physio/wp-content/uploads/2026/02/PlusJakartaSans-Regular.woff2') format('woff2'),
+        url('/kelvin-physio/wp-content/uploads/2026/02/PlusJakartaSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+/* ------------------------------ */
+/* General Styles For theme Toggle */
+/* ------------------------------ */
+body {
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0 auto;
+}
+
+html body a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+path {
+    color: var(--text);
+}
+
+svg {
+  color: var(--text);
+}
+/* ------------------------------ */
+/* Components */
+/* ------------------------------ */
+/* Header */
+.contact-us-header.override-css {
+    background: var(--primary) ;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+
+/* Footer */
+.override-css .kt-block-spacer.kt-block-spacer-halign-center .kt-divider {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* ------------------------------ */
+/* Home Page */
+/* ------------------------------ */
+.kt-svg-item-14_22fb44-9b .kb-svg-icon-wrap path {
+  color: var(--logo);
+}
+
+/* ------------------------------ */
+/* Services page */
+/* ------------------------------ */
+.kt-svg-item-18_e41741-cb .kb-svg-icon-wrap path {
+  color: var(--logo);
+}
+
+/* ------------------------------ */
+/* About Us Page */
+/* ------------------------------ */
+.override.override-css.kpc-post.staff-post .entry-content-wrap{
+ background: var(--primary);
+ color: var(--text);
+}
+
+.override.override-css.kpc-post.staff-post img.attachment-medium_large.size-medium_large.wp-post-image {
+  object-fit: contain;
+}
+
+.override.override-css.kpc-post.staff-post a {
+  color: var(--text);
+}
+
+/* ------------------------------ */
+/* Blog Page */
+/* ------------------------------ */
+.entry-content-wrap {
+    background: var(--secondary);
+}
+
+.wp-block-kadence-posts .loop-entry.type-post .entry-taxonomies .category-style-pill a {
+    color: var(--secondary);
+}
+
+/* ------------------------------ */
+/* Contact Us Page*/
+/* ------------------------------ */
+span.kt-btn-inner-text {
+  color: var(--text);
+}
+
+.kadence-column22_92a6dc-e4{
+  background-color: var(--primary);
+}
+
+/* ------------------------------ */
+/* FAQ Page*/
+/* ------------------------------ */
+html body .kt-tab-inner-content {
+    background: var(--background) !important;
+}
+
+/* Accordion wrapper backgrounds */
+html body .override.override-css.FAQ-override .kt-accordion-wrap,
+html body .override.override-css.FAQ-override .kt-accordion-panel-inner {
+    background: var(--background);
+}
+
+/* Accordion title/header styling */
+html body .kt-blocks-accordion-header {
+    background: var(--primary) !important;
+    color: var(--text) !important;
+}
+
+/* Accordion title hover state */
+html body .kt-blocks-accordion-header:hover {
+    background: var(--secondary) !important;
+    color: var(--constant5) !important;
+}
+
+html body .kt-accordion-panel {
+    background: var(--background) !important;
+}
+
+html body .kt-accordion-panel-inner h2.wp-block-kadence-advancedheading {
+    color: var(--text) !important;
+}
+
+html body .kt-tab-title {
+    background: var(--secondary) !important;
+    color: var(--constant5) !important;
+    opacity: 80%;
+}
+
+html body .kt-tab-title:hover {
+    background: var(--primary) !important;
+    color: var(--text) !important;
+}
+
+html body .kt-tab-title-active .kt-tab-title {
+    background: var(--primary) !important;
+    color: var(--text) !important;
+    opacity: 100%;
+}
+
+html body .kt-accordion-panel-inner a {
+    color: var(--secondary) !important;
+}
+
+html body .kt-accordion-pane {
+    border-color: var(--primary) !important;
+}
+
+html body .override.override-css.FAQ-override .kt-blocks-accordion-icon-trigger {
+    color: var(--text);
+}
+
+
+
+
+
+
+

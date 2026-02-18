@@ -1,0 +1,99 @@
+/* Default Light mode */
+:root {
+  --text: #00374E;
+  --background: #fdfdfd;
+  --logo: #DF0000;
+  --primary: #B9EAFF;
+  --primaryOpacity50: rgba(0, 88, 126, 0.5);
+  --primaryOpacity75: rgba(0, 88, 126, 0.75);
+  --secondary: #0098D9;
+  --accent: #00587E;
+  --mutedaccent: #00374E;
+    /* constant colors */
+  --constant1: #B9EAFF;
+  --constant2: #0098D9;
+  --constant3: #00587E;
+  --constant4: #00374E;
+  --constant5: #fdfdfd;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --text: #fdfdfd;
+  --background: #1B1B1B;
+  --logo: #DF0000;
+  --primary: #00587E;
+  --primaryOpacity50: rgba(185, 234, 255, 0.5);
+  --primaryOpacity75: rgba(185, 234, 255, 0.75);
+  --secondary: #0098D9;
+  --accent: #00587E;
+  --mutedaccent: #00374E;
+  /* constant colors */
+  --constant1: #B9EAFF;
+  --constant2: #0098D9;
+  --constant3: #00587E;
+  --constant4: #00374E;
+}
+
+/* Theme Toggle Button */
+.toggleBtn svg {
+  stroke: var(--text);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.toggleBtn {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary);
+  color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99999;
+  transition: all 1s ease;
+}
+
+.toggleBtn:hover {
+  box-shadow: 0 0 10px var(--accent);
+  background-color: var(--primaryOpacity50);
+}
+
+@media(min-width: 60em) {
+    .toggleBtn {
+        top: 5rem;
+        margin-right: 0.5rem;
+    }
+}
+
+
+
+body,
+main,
+header,
+footer,
+section,
+article,
+div,
+span,
+p,
+h1, h2, h3, h4, h5, h6,
+a,
+button,
+input,
+textarea,
+select {
+    transition: background-color 1.5s ease, 
+                border-color 1.5s ease,
+                box-shadow 1.5s ease;
+}
+
+.toggleBtn {
+  transition: background-color 0.7s ease, opacity 0.7s ease, transform 0.7s ease;
+}
