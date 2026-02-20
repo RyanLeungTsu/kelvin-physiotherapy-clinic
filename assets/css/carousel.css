@@ -61,7 +61,7 @@
   width: 30rem;
   height: auto;
   filter: none;
-  opacity: 0.3;
+  opacity: 0.5;
   z-index: 1;
 }
 
@@ -87,20 +87,28 @@
 }
 
 @media (max-width: 968px) {
+    .hero-overlay {
+    top: 40%;
+  }
+  
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 5rem;
   }
 
   .hero-tagline {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 
   .hero-logo img {
-    width: 10rem;
+    width: 20rem;
   }
 }
 
 @media (max-width: 640px) {
+    .hero-overlay {
+    top: 40%;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -110,7 +118,7 @@
   }
 
   .hero-logo img {
-    width: 8rem;
+    width: 12rem;
   }
 
   .hero-overlay {

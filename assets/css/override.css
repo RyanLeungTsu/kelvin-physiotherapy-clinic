@@ -50,10 +50,20 @@ svg {
 /* Components */
 /* ------------------------------ */
 /* Header */
-.contact-us-header.override-css {
+.contact-us-header.override-css.override-css {
     background: var(--primary) ;
-    padding: 1rem;
-    border-radius: 1.5rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+}
+
+@media (min-width: 969px) {
+    html body .site-header,
+    html body .kadence-rowkelvin-physio-theme__header_75f8bc-83 {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 9999 !important;
+        background: var(--background) !important;
+    }
 }
 
 /* Footer */
@@ -92,15 +102,29 @@ svg {
   color: var(--text);
 }
 
+html body .staff-post .entry-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+@media (max-width: 640px) {
+    html body .staff-post .entry-title {
+        font-size: 1.25rem !important;
+    }
+}
+
 /* ------------------------------ */
 /* Blog Page */
 /* ------------------------------ */
 .entry-content-wrap {
-    background: var(--secondary);
+    background: var(--primary);
 }
 
 .wp-block-kadence-posts .loop-entry.type-post .entry-taxonomies .category-style-pill a {
-    color: var(--secondary);
+    color: var(--secondary75);
 }
 
 /* ------------------------------ */

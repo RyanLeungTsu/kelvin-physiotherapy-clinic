@@ -12,6 +12,7 @@
 function kpc_enqueue_assets()
 {
     // Main CSS Styles
+    wp_enqueue_style('kpc-normalize', get_template_directory_uri() . '/assets/css/kpcNormalize.css', [], '1.0');
     wp_enqueue_style('kpc-theme-toggle', get_template_directory_uri() . '/assets/css/theme-toggle.css', [], '1.1');
     wp_enqueue_style('kpc-carousel-style', get_template_directory_uri() . '/assets/css/carousel.css', [], '1.0');
     wp_enqueue_style('mobile-menu-css', get_template_directory_uri() . '/assets/css/mobileNav.css', array(), '1.0.0');

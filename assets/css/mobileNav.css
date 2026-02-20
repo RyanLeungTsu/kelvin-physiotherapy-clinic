@@ -1,10 +1,25 @@
-/* hides the defauly desktop nav bar on tablet and mobile */
-@media (max-width: 968px) {
+/* hides the default desktop nav bar on tablet and mobile */
+@media (max-width: 500px) {
     .site-header,
     .kadence-column[class*="header"],
     header {
         display: none !important;
     }
+
+    html body .site-header-wrap,
+    html body .site-header-row-container-inner {
+        height: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+/* Hides the mobile header when menu is expanded */
+.mobile-header.menu-open {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Mobile Header */
@@ -16,20 +31,22 @@
     width: 100%;
     background: var(--primary);
     z-index: 9999;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    /* position: relative; */
+    transition: transform 1s ease, opacity 1s ease;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 500px) {
     .mobile-header {
         display: flex;
     }
-    
-    body {
-        padding-top: 5rem;
-    }
+}
+
+.mobile-header-logo-div {
+    justify-content: center;
 }
 
 .mobile-header-logo {
@@ -38,6 +55,8 @@
 }
 
 .mobile-menu-toggle {
+    position: absolute;
+    right: 1rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -48,6 +67,8 @@
     justify-content: center;
     color: var(--logo);
 }
+
+
 
 .mobile-menu-toggle svg {
     color: var(--logo);
@@ -70,7 +91,8 @@
     left: 0;
     margin: 0 auto;
     width: 100%;
-    height: calc(100vh - 5rem);
+    height: 100vh;
+    /* height: calc(100vh - 5rem); */
     background: var(--background);
     z-index: 9998;
     display: flex;
@@ -81,7 +103,7 @@
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.75s ease;
 }
 
 .mobile-menu-overlay.active {
@@ -91,9 +113,9 @@
 }
 
 .mobile-menu-logo {
-    width: 8rem;
+    width: 10rem;
     height: auto;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 
 .mobile-menu-nav {
@@ -118,9 +140,10 @@
 
 /* Bottom arrow */
 .mobile-menu-bottom-arrow {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
+    color: var(--logo);
 }
 
 .mobile-menu-bottom-arrow svg {

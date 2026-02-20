@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mobileHeaderHTML = `
         <div class="mobile-header">
-            <img src="/kelvin-physio/wp-content/uploads/carousel-logo/logo.png" alt="Logo" class="mobile-header-logo">
+            <div class="mobile-header-logo-div">
+                <img src="/kelvin-physio/wp-content/uploads/carousel-logo/logo.png" alt="Logo" class="mobile-header-logo">
+            </div>
             <button class="mobile-menu-toggle" aria-label="Toggle Menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -32,10 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const menuOverlay = document.querySelector('.mobile-menu-overlay');
     const bottomArrow = document.querySelector('.mobile-menu-bottom-arrow');
-    
+    const mobileHeader = document.querySelector('.mobile-header'); 
     function toggleMenu() {
         menuToggle.classList.toggle('active');
         menuOverlay.classList.toggle('active');
+        mobileHeader.classList.toggle('menu-open'); 
         document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
     }
     
