@@ -25,6 +25,15 @@ h1,h2,h3,h4,h5,h6 {
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
+/* Sticky fix */
+:root {
+    --header-height: 148 px;
+}
+
+[class*="sticky"]:not(header):not(.wp-block-template-part) {
+    top: var(--header-height) !important;
+}
+
 /* ------------------------------ */
 /* General Styles For theme Toggle */
 /* ------------------------------ */
@@ -34,38 +43,48 @@ body {
   margin: 0 auto;
 }
 
+div#wpadminbar {
+    display: hide;
+}
+
+html {
+    margin: 0px;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    /* fix for scroll */
+    scroll-padding-top: var(--header-height);
+}
+
 html body a {
   color: var(--text);
   text-decoration: none;
 }
 
-path {
-    color: var(--text);
-}
-
-svg {
-  color: var(--text);
+.kpc-section {
+    position: relative;
+    z-index: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 /* ------------------------------ */
 /* Components */
 /* ------------------------------ */
 /* Header */
-.contact-us-header.override-css.override-css {
-    background: var(--primary) ;
-    padding: 0.3rem;
-    border-radius: 1rem;
+.wp-block-template-part[data-slug="header"],
+header.wp-block-template-part {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: var(--background);
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
-@media (min-width: 969px) {
-    html body .site-header,
-    html body .kadence-rowkelvin-physio-theme__header_75f8bc-83 {
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 9999 !important;
-        background: var(--background) !important;
-    }
-}
-
+/* .wp-site-blocks {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+} */
 /* Footer */
 .override-css .kt-block-spacer.kt-block-spacer-halign-center .kt-divider {
   color: var(--text);
@@ -79,6 +98,29 @@ svg {
   color: var(--logo);
 }
 
+#our-clinic,
+#services {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.override.override-css.disclaimer path {
+    color: var(--logo);
+}
+
+.override.override-css.service-section path {
+    color: var(--constant5);
+}
+
+.override.override-css.service-section h2 {
+    color: var(--constant4);
+}
+
+.hero-section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
 /* ------------------------------ */
 /* Services page */
 /* ------------------------------ */
@@ -89,10 +131,36 @@ svg {
 /* ------------------------------ */
 /* About Us Page */
 /* ------------------------------ */
+.kadence-column16_b88a6c-e3 {
+    margin-bottom: 0 !important;
+}
+
+.kadence-column16_2c8a0f-52 {
+    margin-top: 0 !important;
+}
+
 .override.override-css.kpc-post.staff-post .entry-content-wrap{
  background: var(--primary);
  color: var(--text);
 }
+
+.wp-block-kadence-posts .loop-entry {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wp-block-kadence-posts .loop-entry .entry-content-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+
+.wp-block-kadence-posts .loop-entry .entry-content-wrap .loop-entry-read-more {
+    margin-top: auto;
+}
+
 
 .override.override-css.kpc-post.staff-post img.attachment-medium_large.size-medium_large.wp-post-image {
   object-fit: contain;
@@ -127,6 +195,13 @@ html body .staff-post .entry-title {
     color: var(--secondary75);
 }
 
+/* Sticky cta */
+.override-css.blog-column {
+    position: sticky;
+    top: 160px;
+    z-index: 1000;
+}
+
 /* ------------------------------ */
 /* Contact Us Page*/
 /* ------------------------------ */
@@ -134,8 +209,12 @@ span.kt-btn-inner-text {
   color: var(--text);
 }
 
-.kadence-column22_92a6dc-e4{
-  background-color: var(--primary);
+form#kb-adv-form-200-cpt-id {
+    z-index: 9999;
+}
+
+.contact-us {
+    margin-top: 2rem !important;
 }
 
 /* ------------------------------ */
@@ -178,7 +257,7 @@ html body .kt-tab-title {
 }
 
 html body .kt-tab-title:hover {
-    background: var(--primary) !important;
+    background: var(--secondary) !important;
     color: var(--text) !important;
 }
 
@@ -198,6 +277,114 @@ html body .kt-accordion-pane {
 
 html body .override.override-css.FAQ-override .kt-blocks-accordion-icon-trigger {
     color: var(--text);
+}
+
+/* Accordian max width fix for mobile */
+@media (max-width: 767px) {
+  .kt-tabs-id20_14ddb1-30 .kt-tabs-title-list {
+    width: 100% !important;
+  }
+
+  .kt-tabs-id20_14ddb1-30 .kt-title-item {
+    width: 100% !important;
+    margin: 0.5rem 0 0 0 !important;
+  }
+
+  .kt-tabs-id20_14ddb1-30 .kt-tab-title {
+    width: 100% !important;
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .kt-tabs-id20_14ddb1-30 .kt-tabs-content-wrap {
+    min-height: 400px !important;
+  }
+
+  .kt-tabs-id20_14ddb1-30 .kt-accordion-panel-inner {
+    min-height: 200px !important;
+  }
+
+  .kt-tabs-content-wrap {
+  position: relative !important;
+  overflow: visible !important;
+  min-height: auto !important;
+}
+
+.kt-accordion-panel {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.kt-accordion-panel-inner {
+  position: relative !important;
+  overflow: visible !important;
+  min-height: auto !important;
+}
+
+/* Ensure the FAQ section expands with content */
+.kadence-column20_27c72f-13 {
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* fix for mobile accordian */
+.kt-accordion-wrap {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.kt-tab-inner-content {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+#questions .kadence-column20_490069-05,
+#questions .kadence-column20_490069-05 .kt-inside-inner-col {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.kadence-column14_696b0d-09,
+.kadence-column14_696b0d-09 > .kt-inside-inner-col {
+    height: 100svh !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+
+#home {
+    z-index: 2 !important;
+    position: relative !important;
+}
+
+.kadence-column14_696b0d-09 {
+    position: relative;
+    z-index: auto !important;
+}
+
+header.wp-block-template-part + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 

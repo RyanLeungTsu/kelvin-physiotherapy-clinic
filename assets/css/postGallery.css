@@ -1,5 +1,5 @@
 .post-carousel-wrapper {
-    width: 90vw;
+    width: 80vw;
     margin: 3.75rem auto;
     padding: 0 1.5rem;
 }
@@ -7,8 +7,7 @@
 .post-carousel {
     position: relative;
     background: var(--background);
-    border-radius: 1.1rem;
-    box-shadow: 0 0.25rem 1rem var(--accent);
+    box-shadow: 0 0.25rem 1rem var(--constant1);
     overflow: hidden;
 }
 
@@ -16,7 +15,7 @@
 .post-slides {
     position: relative;
     width: 100%;
-    height: 34.375rem;
+    height: 30rem;
 }
 
 .post-slide {
@@ -47,7 +46,6 @@
 .post-slide-image {
     width: 100%;
     height: 12.5rem;
-    border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -78,7 +76,7 @@
     color: var(--constant5);
     padding: 0.3125rem 1rem;
     border-radius: 1.25rem;
-    font-size: 0.6875rem;
+    font-size: 0.5rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.03125rem;
@@ -86,7 +84,7 @@
 }
 
 .post-slide-content h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin: 0.625rem 0;
     color: var(--text);
     line-height: 1.2;
@@ -105,7 +103,7 @@
 
 .post-excerpt {
     color: var(--text);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.6;
     margin: 0.625rem 0 0.9375rem;
 }
@@ -116,7 +114,7 @@
     align-items: flex-start;
     flex-direction: column;
     color: var(--text);
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     margin-bottom: 0.78125rem;
 }
 
@@ -138,7 +136,7 @@
     transition: all 0.3s;
     border: none;
     cursor: pointer;
-    font-size: 0.875rem;
+    font-size: 0.5rem;
 }
 
 .read-more-btn:hover {
@@ -149,27 +147,26 @@
 
 /* navigation arrows */
 .carousel-nav {
+    display: none;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--secondary);
+    background: transparent;
     border: none;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
-    font-size: 1.25rem;
+    font-size: 4rem;
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s;
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
-    color: var(--constant5);
-    display: flex;
+    color: var(--constant2);
     align-items: center;
     justify-content: center;
 }
 
 .carousel-nav:hover {
-    background: var(--accent);
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -216,6 +213,10 @@
 
 /* Tablet styling for 640px and above */
 @media (min-width: 540px) {
+    .post-carousel {
+            padding: 1rem 4rem 1rem 4rem;
+    }
+
     .post-slides {
         height: 40.625rem;
     }
@@ -230,11 +231,11 @@
     }
     
     .post-slide-content h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
     .post-excerpt {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
     
     .post-slide-image {
@@ -243,13 +244,14 @@
     
     .read-more-btn {
         padding: 0.75rem 2rem;
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
     
     .carousel-nav {
         width: 3rem;
         height: 3rem;
         font-size: 1.5rem;
+        display: flex;
     }
     
     .carousel-prev {
@@ -260,17 +262,13 @@
         right: 1.5rem;
     }
     
-    .post-carousel {
-        border-radius: 0.9375rem;
-    }
-    
     .post-carousel-wrapper {
         margin: 2.5rem auto;
         padding: 0 0.9375rem;
     }
     
     .post-category {
-        font-size: 0.75rem;
+        font-size: 0.5rem;
         padding: 0.375rem 1rem;
     }
     

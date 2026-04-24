@@ -16,11 +16,14 @@ function kpc_enqueue_assets()
     wp_enqueue_style('kpc-theme-toggle', get_template_directory_uri() . '/assets/css/theme-toggle.css', [], '1.1');
     wp_enqueue_style('kpc-carousel-style', get_template_directory_uri() . '/assets/css/carousel.css', [], '1.0');
     wp_enqueue_style('mobile-menu-css', get_template_directory_uri() . '/assets/css/mobileNav.css', array(), '1.0.0');
+    wp_enqueue_style('kpc-scroll', get_stylesheet_directory_uri() . '/assets/css/kpcScroll.css', [], '1.0.0');
+    wp_enqueue_style('kpc-background', get_stylesheet_directory_uri() . '/assets/css/kpcWaveBackground.css', [], '1.0.0');
 
     // Scripts
     wp_enqueue_script('heroCarouselJs', get_template_directory_uri() . '/assets/js/carousel.js', [], null, true);
     wp_enqueue_script('theme-toggle-script', get_template_directory_uri() . '/assets/js/theme-toggle.js', [], '1.0', true);
     wp_enqueue_script('mobile-menu-js', get_template_directory_uri() . '/assets/js/mobileNav.js', array(), '1.0.0', true);
+    wp_enqueue_script('kpc-scroll-js', get_template_directory_uri() . '/assets/js/kpcScroll.js', [], '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'kpc_enqueue_assets');
 
@@ -192,6 +195,48 @@ function themeToggleShortcode()
 }
 add_shortcode('theme_toggle', 'themeToggleShortcode');
 
+// Shortcode: background waves regular and inverted
+function kpc_wave_background_shortcode() {
+    return '
+    <div class="kpc-background-wrapper">
+        <div class="kpc-wave"></div>
+        <div class="kpc-wave"></div>
+        <div class="kpc-wave"></div>
+    </div>';
+}
+add_shortcode('kpc_wave_background', 'kpc_wave_background_shortcode');
+
+// 
+function kpc_inverted_wave_background_shortcode() {
+    return '
+    <div class="kpc-background-wrapper">
+        <div class="kpc-wave-inverted"></div>
+        <div class="kpc-wave-inverted"></div>
+        <div class="kpc-wave-inverted"></div>
+    </div>';
+}
+add_shortcode('kpc_inverted_wave_background', 'kpc_inverted_wave_background_shortcode');
+function kpc_scroll_shortcode($atts)
+{
+    $atts = shortcode_atts([
+        'sections' => '',
+    ], $atts, 'kpc_scroll_nav');
+
+    if (empty($atts['sections']))
+        return '';
+
+    $ids = array_map('sanitize_html_class', explode(',', $atts['sections']));
+    $count = count($ids);
+
+    $items = '';
+    foreach ($ids as $id) {
+        $label = ucwords(str_replace(['-', '_'], ' ', $id));
+        $items .= '<li data-label="' . esc_attr($label) . '"><a href="#' . $id . '"><span class="sr">' . esc_html($label) . '</span></a></li>';
+    }
+
+    return '<nav class="kpc-indicator" style="--kpc-section-count: ' . $count . '"><ul>' . $items . '</ul></nav>';
+}
+add_shortcode('kpc_scroll', 'kpc_scroll_shortcode');
 
 // ========================
 // Images and Font
@@ -296,3 +341,4 @@ add_filter('post_thumbnail_html', function ($html, $post_id, $post_thumbnail_id,
 
     return '<img src="' . esc_url($fallback) . '" alt="' . $alt . '" class="' . $classes . '" loading="lazy" decoding="async" />';
 }, 10, 5);
+

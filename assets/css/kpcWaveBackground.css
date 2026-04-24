@@ -1,0 +1,96 @@
+.kpc-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: var(--background);
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.kpc-has-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.kpc-has-background > * {
+    position: relative;
+    z-index: 1;
+}
+
+.kpc-wave {
+    background: var(--primary);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 20em;
+    animation: kpc-wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.5;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.kpc-background-wrapper .kpc-wave:nth-child(2) {
+    background: var(--secondary);
+    bottom: -5em;
+    animation: kpc-wave 18s linear reverse infinite;
+    opacity: 0.3;
+}
+
+.kpc-background-wrapper .kpc-wave:nth-child(3) {
+    bottom: -8.5em;
+    animation: kpc-wave 20s -0.5s reverse infinite;
+    opacity: 0.5;
+}
+
+/* For inverted wave  */
+.kpc-wave-inverted {
+    background: var(--primary);
+    border-radius: 0 0 1000% 1000%;
+    position: fixed;
+    width: 200%;
+    height: 20em;
+    animation: kpc-wave 14s -1s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.kpc-background-wrapper .kpc-wave-inverted:nth-child(2) {
+    background: var(--secondary);
+    top: -5em;
+    animation: kpc-wave 13s -2s linear reverse infinite;
+    opacity: 0.25;
+}
+
+.kpc-background-wrapper .kpc-wave-inverted:nth-child(3) {
+    top: -8.5em;
+    animation: kpc-wave 21s -4s linear infinite;
+    opacity: 0.45;
+}
+
+@keyframes kpc-wave {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
