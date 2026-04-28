@@ -45,7 +45,7 @@
 
 .toggleBtn {
   position: fixed;
-  bottom: 6.5rem;
+  bottom: calc(4rem + env(safe-area-inset-bottom) + 0.75rem);
   right: 0.5rem;
   width: 4rem;
   height: 4rem;
@@ -70,8 +70,6 @@
         margin-right: 0.5rem;
     }
 }
-
-
 
 body,
 main,

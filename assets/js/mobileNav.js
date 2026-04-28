@@ -39,7 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.classList.toggle('active');
         menuOverlay.classList.toggle('active');
         mobileHeader.classList.toggle('menu-open'); 
-        document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+        // document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+         if (menuOverlay.classList.contains('active')) {
+        document.body.classList.add('menu-open');
+    } else {
+        document.body.classList.remove('menu-open');
+    }
     }
     
     menuToggle.addEventListener('click', toggleMenu);
