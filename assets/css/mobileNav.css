@@ -38,6 +38,14 @@
     transition: transform 1s ease, opacity 1s ease;
 }
 
+/* Locks site from being scrolled */
+body.menu-open {
+    overflow: hidden !important;
+    height: 100%; 
+    position: fixed; 
+    width: 100%;
+}
+
 /* Mobile styling */
 @media (max-width: 500px) {
     .mobile-header {
@@ -85,7 +93,7 @@
 }
 
 /* Mobile Menu Overlay */
-.mobile-menu-overlay {
+/* .mobile-menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -106,6 +114,26 @@
     overflow-y: auto; 
     box-sizing: border-box; 
     transition: all 0.75s ease;
+} */
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh; 
+    background: var(--background);
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem calc(3rem + env(safe-area-inset-bottom)) 1rem;
+    box-sizing: border-box;
+    overflow-y: auto; 
+    transition: all 0.75s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .mobile-menu-overlay.active {
@@ -115,9 +143,10 @@
 }
 
 .mobile-menu-logo {
-    width: 10rem;
+    width: 7rem;
     height: auto;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .mobile-menu-nav {
@@ -140,16 +169,64 @@
     transition: color 0.3s;
 }
 
-/* Bottom arrow */
 .mobile-menu-bottom-arrow {
     width: 3rem;
     height: 3rem;
     cursor: pointer;
     color: var(--logo);
+
 }
 
 .mobile-menu-bottom-arrow svg {
     color: var(--logo);
+}
+
+/* Accordian menu for mobile menu */
+.menu-accordion {
+    width: 100%;
+    text-align: center;
+}
+
+.accordion-trigger {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    border: none;
+    font-family: inherit;
+    transition: color 0.3s;
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding-left: 1rem; /* Indent subpages */
+}
+
+.submenu.active {
+    max-height: 200px; /* Adjust if you add more subpages */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.submenu a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 /* Hides the mobile nav on desktop */

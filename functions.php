@@ -342,3 +342,8 @@ add_filter('post_thumbnail_html', function ($html, $post_id, $post_thumbnail_id,
     return '<img src="' . esc_url($fallback) . '" alt="' . $alt . '" class="' . $classes . '" loading="lazy" decoding="async" />';
 }, 10, 5);
 
+// For mobile stylings for header
+function add_viewport_fit_cover() {
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">' . "\n";
+}
+add_action('wp_head', 'add_viewport_fit_cover', 1);
