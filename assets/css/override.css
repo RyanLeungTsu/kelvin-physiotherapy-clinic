@@ -86,6 +86,17 @@ html body a {
   font-size: clamp(1.5rem, 1.5vw, 2rem);
   color: var(--text);
 }
+
+.kt-row-layout-inner,
+.kt-inside-inner-col,
+.wp-block-kadence-column,
+.wp-block-kadence-rowlayout,
+.site-main,
+.entry-content,
+.wp-site-blocks,
+main {
+    overflow: visible !important;
+}
 /* ------------------------------ */
 /* Components */
 /* ------------------------------ */
@@ -381,8 +392,9 @@ html
 /* Single Staff Page*/
 /* ------------------------------ */
 /* About us profile picture sticky */
-figure.wp-block-kadence-image.kb-imagekelvin-physio-theme__staff-single-post_a995f6-e1 {
-  position: sticky;
+
+img.has-border-color.has-vivid-cyan-blue-border-color.wp-post-image {
+  position: sticky !important;
   top: 160px;
 }
 

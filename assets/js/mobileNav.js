@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <li><a href="/kelvin-physio/">Home</a></li>
             <li><a href="/kelvin-physio/about-us/">About Us</a></li>
             
-            <!-- Services Accordion (No arrow, trigger is just "Services" text) -->
             <li class="menu-accordion">
                 <!-- Trigger is just the "Services" text, no arrow, styled like other links -->
                 <button class="accordion-trigger" aria-expanded="false" aria-controls="services-submenu">
@@ -28,12 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li><a href="/kelvin-physio/services/physio/">Physiotherapy</a></li>
                     <li><a href="/kelvin-physio/services/rehab/">Rehabilitation</a></li>
                     <li><a href="/kelvin-physio/services/kins/">Kinesiology</a></li>
+                    <li><a href="/kelvin-physio/services/telehealth/">TeleHealth</a></li>
                 </ul>
-            </li>
-            
-            <!-- Separate Rates link (Order: Services first, then Rates) -->
+            </li>            
             <li><a href="/kelvin-physio/rates/">Rates</a></li>
-            
             <li><a href="/kelvin-physio/blog/">Blog</a></li>
             <li><a href="/kelvin-physio/faq/">FAQ</a></li>
             <li><a href="/kelvin-physio/contact-us/">Contact Us</a></li>
